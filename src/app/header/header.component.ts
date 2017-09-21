@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output() onToggleView = new EventEmitter<{viewName: string}>();
 
+  showRecipesClicked() {
+    this.onToggleView.emit({ viewName: 'recipes' });
+  }
+
+  showShoppingListClicked() {
+    this.onToggleView.emit({ viewName: 'shoppingList' });
+  }
 }
