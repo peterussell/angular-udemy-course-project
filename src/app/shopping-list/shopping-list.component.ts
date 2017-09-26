@@ -7,7 +7,7 @@ import { ShoppingListService } from './shopping-list.service';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
-  providers: [ShoppingListService]
+  providers: []
 })
 export class ShoppingListComponent implements OnInit {
   private ingredients: Ingredient[];
@@ -15,8 +15,8 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit() {
     this.ingredients = this.shoppingListService.getIngredients();
-    this.shoppingListService.ingredientAdded.subscribe(() => {
-      this.ingredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.ingredientAdded.subscribe((newIngredients) => {
+      this.ingredients = newIngredients;
     });
   }
 }
