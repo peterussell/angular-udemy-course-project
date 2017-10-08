@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RecipesComponent } from './recipes/recipes.component';
+import { NoRecipeSelectedComponent } from './recipes/recipe-detail/no-recipe-selected/no-recipe-selected.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent, children: [
-    
+    { path: '', component: NoRecipeSelectedComponent },
+    { path: ':id', component: RecipeDetailComponent }
   ]},
   { path: 'shopping-list', component: ShoppingListComponent }
 ];

@@ -4,11 +4,6 @@
     </app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail *ngIf="currentRecipe; else selectPrompt"
-                       [recipe]="currentRecipe">
-    </app-recipe-detail>
-    <ng-template #selectPrompt>
-      <h3>Please select a recipe.</h3>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>
